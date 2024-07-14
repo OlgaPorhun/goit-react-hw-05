@@ -1,0 +1,23 @@
+.castContainer {
+  padding: 20px;
+}
+
+.castList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.castItem {
+  width: 150px;
+  text-align: center;
+  list-style: none;
+}
+
+.castImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

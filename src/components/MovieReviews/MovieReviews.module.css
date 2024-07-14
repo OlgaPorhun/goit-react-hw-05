@@ -1,0 +1,16 @@
+.reviewsContainer {
+  padding: 20px;
+}
+
+.reviewsList {
+  list-style: none;
+  padding: 0;
+}
+
+.reviewItem {
+  margin-bottom: 20px;
+}
+
+.reviewItem h3 {
+  margin: 0 0 10px;
+}

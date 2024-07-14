@@ -1,0 +1,24 @@
+.container {
+  padding: 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.message {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.link {
+  text-decoration: none;
+  color: blue;
+  font-size: 1.2em;
+}
+
+.link:hover {
+  color: darkblue;
+}
