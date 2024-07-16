@@ -42,6 +42,9 @@ const MoviesPage = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const query = formData.get("query");
     setSearchParams({ query });
   };
 
@@ -50,8 +53,8 @@ const MoviesPage = () => {
       <form onSubmit={handleSearch} className={styles.form}>
         <input
           type="text"
-          value={query}
-          onChange={(e) => setSearchParams({ query: e.target.value })}
+          name="query"
+          defaultValue={query}
           className={styles.input}
           placeholder="Search movies..."
         />
