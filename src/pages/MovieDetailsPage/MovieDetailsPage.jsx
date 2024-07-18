@@ -1,19 +1,13 @@
-import { useEffect, useState, Suspense, lazy } from "react";
+import { useEffect, useState, Suspense } from "react";
 import {
   useParams,
   Link,
-  Routes,
-  Route,
+  Outlet,
   useLocation,
   useNavigate,
 } from "react-router-dom";
 import axios from "axios";
 import styles from "./MovieDetailsPage.module.css";
-
-const MovieCast = lazy(() => import("../../components/MovieCast/MovieCast"));
-const MovieReviews = lazy(() =>
-  import("../../components/MovieReviews/MovieReviews")
-);
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
@@ -76,10 +70,7 @@ const MovieDetailsPage = () => {
         </ul>
       </nav>
       <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          <Route path="cast" element={<MovieCast />} />
-          <Route path="reviews" element={<MovieReviews />} />
-        </Routes>
+        <Outlet />
       </Suspense>
     </div>
   );
