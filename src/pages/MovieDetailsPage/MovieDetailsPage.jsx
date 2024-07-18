@@ -1,11 +1,5 @@
-import { useEffect, useState, Suspense } from "react";
-import {
-  useParams,
-  Link,
-  Outlet,
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
+import { useEffect, useState, Suspense, useRef } from "react";
+import { useParams, Link, Outlet, useLocation } from "react-router-dom";
 import axios from "axios";
 import styles from "./MovieDetailsPage.module.css";
 
@@ -13,7 +7,7 @@ const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const location = useLocation();
-  const navigate = useNavigate();
+  const backLink = useRef(location.state?.from || "/");
 
   useEffect(() => {
     const fetchMovieDetails = async (retryCount = 3) => {
@@ -43,11 +37,9 @@ const MovieDetailsPage = () => {
 
   if (!movie) return <p>Loading...</p>;
 
-  const backLink = location.state?.from || "/";
-
   return (
     <div className={styles.details}>
-      <button onClick={() => navigate(backLink)}>Back</button>
+      <Link to={backLink.current}>Back</Link>
       <h1 className={styles.title}>{movie.title}</h1>
       <p className={styles.overview}>{movie.overview}</p>
       <img
